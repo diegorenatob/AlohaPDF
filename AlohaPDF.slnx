@@ -3,6 +3,8 @@
     <Project Path="samples/QuickStart/QuickStart.csproj" />
   </Folder>
   <Folder Name="/src/">
+    <Project Path="src/AlohaPDF.Core.Contracts/AlohaPDF.Core.Contracts.csproj" />
+    <Project Path="src/AlohaPDF.Elements/AlohaPDF.Elements.csproj" />
     <Project Path="src/AlohaPDF/AlohaPDF.csproj" />
   </Folder>
 </Solution>

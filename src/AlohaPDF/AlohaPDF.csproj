@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <LangVersion>13.0</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    
+    <!-- NuGet Package Properties -->
+    <PackageId>AlohaPDF</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>Diego Belapatiño Farias</Authors>
+    <Company>AlohaPDF</Company>
+    <Description>?? Create beautiful PDFs with Aloha spirit! A modern, fluent PDF generator for .NET MAUI with an intuitive API. Perfect for cross-platform mobile and desktop apps.</Description>
+    <PackageTags>pdf;maui;skiasharp;report;document;mobile;cross-platform;fluent;ios;android;windows;mac;aloha</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/diegobelapatinofariasTKE/AlohaPDF</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/diegobelapatinofariasTKE/AlohaPDF</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <Copyright>Copyright (c) 2025 Diego Belapatiño Farias</Copyright>
+    <PackageReleaseNotes>?? Initial release - Create PDFs with Aloha spirit!</PackageReleaseNotes>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="SkiaSharp" Version="2.88.8" />
+    <PackageReference Include="Svg.Skia" Version="1.0.0.8" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="../../README.md" Pack="true" PackagePath="/" />
+  </ItemGroup>
+
+</Project>

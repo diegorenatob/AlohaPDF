@@ -13,16 +13,13 @@ try
     {
         Title = "Aloha Sales Report",
         Subtitle = "Q1 2025 - Created with Aloha Spirit",
-        Metadata = new Dictionary<string, string>
+        Info = new DocumentInfo
         {
-            { "Author", "Jane Smith" },
-            { "Department", "Sales" },
-            { "Version", "1.0" },
-            { "Date", DateTime.Now.ToString("yyyy-MM-dd") },
-            { "Time", DateTime.Now.ToString("HH:mm:ss") }
+            Author = "Jane Smith",
+            CreatedDate = DateTime.Now,
+            ShowInHeader = true  // Simple one-line format: "Jane Smith • Created on Feb 11, 2025"
         },
-        RepeatHeader = true,
-        RepeatMetadata = false
+        RepeatHeader = true
     };
 
     Console.WriteLine("✓ Initializing PDF with Aloha spirit...");
@@ -108,7 +105,7 @@ try
             isBold: true
         );
 
-    var outputPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "AlohaPDF-QuickStart.pdf");
+    var outputPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), $"AlohaPDF-{DateTime.Now:yyyyMMdd-HHmmss}.pdf");
     
     Console.WriteLine($"\n✓ Generating PDF with Aloha vibes: {outputPath}");
     pdf.Generate(outputPath);

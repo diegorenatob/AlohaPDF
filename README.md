@@ -1,6 +1,6 @@
 <div align="center">
 
-# ?? AlohaPDF
+# 🌺 AlohaPDF
 
 ### *Create Beautiful PDFs with Aloha Spirit*
 
@@ -12,24 +12,24 @@
 A modern, intuitive PDF generator for .NET MAUI with tropical vibes.  
 Perfect for cross-platform mobile and desktop applications.
 
-[Getting Started](#-getting-started) � [Examples](#-examples) � [Docs](#-documentation) � [Contribute](#-contributing)
+[Getting Started](#-getting-started) • [Examples](#-examples) • [Docs](#-documentation) • [Contribute](#-contributing)
 
 </div>
 
 ---
 
-## ? Why AlohaPDF?
+## ✨ Why AlohaPDF?
 
 > **The Aloha Spirit** - Creating PDFs should be welcoming, simple, and joyful. AlohaPDF brings that spirit to .NET MAUI.
 
-- ?? **Simple & Intuitive** - Fluent API that feels natural
-- ?? **Beautiful by Default** - Tropical color palette inspired design
-- ?? **Mobile-First** - Built specifically for .NET MAUI
-- ? **Lightning Fast** - Optimized for mobile performance  
-- ?? **100% Open Source** - MIT licensed, free forever
-- ?? **Modern Design** - Contemporary styling out of the box
+- 🌺 **Simple & Intuitive** - Fluent API that feels natural
+- 🎨 **Beautiful by Default** - Tropical color palette inspired design
+- 📱 **Mobile-First** - Built specifically for .NET MAUI
+- ⚡ **Lightning Fast** - Optimized for mobile performance  
+- 🆓 **100% Open Source** - MIT licensed, free forever
+- 🌴 **Modern Design** - Contemporary styling out of the box
 
-## ?? Quick Start
+## 🚀 Quick Start
 
 ### Installation
 
@@ -49,10 +49,11 @@ pdf.Initialize(new PdfDocumentOptions
 {
     Title = "Welcome to AlohaPDF",
     Subtitle = "Creating PDFs with Aloha Spirit",
-    Metadata = new Dictionary<string, string>
+    Info = new DocumentInfo
     {
-        { "Author", "Your Name" },
-        { "Date", DateTime.Now.ToString("yyyy-MM-dd") }
+        Author = "Your Name",
+        CreatedDate = DateTime.Now
+        // Displays as simple one-line: "Your Name • Created on Feb 11, 2025"
     }
 });
 
@@ -63,9 +64,9 @@ pdf
         headers: new[] { "Feature", "Status" },
         rows: new[]
         {
-            new[] { "Beautiful Design", "?" },
-            new[] { "Easy to Use", "?" },
-            new[] { "Open Source", "?" }
+            new[] { "Beautiful Design", "✓" },
+            new[] { "Easy to Use", "✓" },
+            new[] { "Open Source", "✓" }
         },
         headerStyle: TableHeaderStyle.Primary
     );
@@ -73,71 +74,71 @@ pdf
 pdf.Generate("aloha.pdf");
 ```
 
-**That's it!** ?? You just created a beautiful PDF.
+**That's it!** 🌺 You just created a beautiful PDF.
 
-## ?? Key Features
+## 🎯 Key Features
 
 <table>
 <tr>
 <td width="50%">
 
-### ?? Rich Content
-- ? Sections & Subtitles
-- ? Paragraphs with styling
-- ? Tables (4 beautiful styles)
-- ? Lists (bullet & numbered)
-- ? Custom spacing
-- ? Lines & dividers
+### 📄 Rich Content
+- ✅ Sections & Subtitles
+- ✅ Paragraphs with styling
+- ✅ Tables (4 beautiful styles)
+- ✅ Lists (bullet & numbered)
+- ✅ Custom spacing
+- ✅ Lines & dividers
 
 </td>
 <td width="50%">
 
-### ?? Tropical Design
-- ? Coral, ocean, palm colors
-- ? Modern typography
-- ? Custom fonts support
-- ? SVG/PNG/JPG logos
-- ? Zebra-striped tables
-- ? Rounded corners
+### 🎨 Tropical Design
+- ✅ Coral, ocean, palm colors
+- ✅ Modern typography
+- ✅ Custom fonts support
+- ✅ SVG/PNG/JPG logos
+- ✅ Zebra-striped tables
+- ✅ Rounded corners
 
 </td>
 </tr>
 <tr>
 <td>
 
-### ?? Smart Layout
-- ? Auto page breaks
-- ? Text wrapping
-- ? Repeating headers
-- ? Dynamic spacing
-- ? Multi-page support
-- ? Mobile-optimized
+### 🔄 Smart Layout
+- ✅ Auto page breaks
+- ✅ Text wrapping
+- ✅ Repeating headers
+- ✅ Dynamic spacing
+- ✅ Multi-page support
+- ✅ Mobile-optimized
 
 </td>
 <td>
 
-### ?? Developer Joy
-- ? Fluent, chainable API
-- ? IntelliSense support
-- ? XML documentation
-- ? Type-safe options
-- ? Zero setup
-- ? .NET 9 ready
+### 💻 Developer Joy
+- ✅ Fluent, chainable API
+- ✅ IntelliSense support
+- ✅ XML documentation
+- ✅ Type-safe options
+- ✅ Zero setup
+- ✅ .NET 9 ready
 
 </td>
 </tr>
 </table>
 
-## ?? Platform Support
+## 📱 Platform Support
 
 | Platform | Status |
 |----------|--------|
-| ?? iOS | ? Fully Supported |
-| ?? Android | ? Fully Supported |
-| ?? Windows | ? Fully Supported |
-| ?? macOS | ? Fully Supported |
+| 🍎 iOS | ✅ Fully Supported |
+| 🤖 Android | ✅ Fully Supported |
+| 🪟 Windows | ✅ Fully Supported |
+| 🍎 macOS | ✅ Fully Supported |
 
-## ?? Examples
+## 💡 Examples
 
 ### Tropical Color Tables
 
@@ -180,7 +181,7 @@ var options = new PdfDocumentOptions
 };
 ```
 
-## ?? Color Palette
+## 🎨 Color Palette
 
 AlohaPDF uses a tropical-inspired color scheme:
 
@@ -188,7 +189,7 @@ AlohaPDF uses a tropical-inspired color scheme:
 - **Secondary (Ocean)**: `#00A8CC` - Professional and calm
 - **Accent (Palm)**: `#6BBF59` - Fresh and vibrant
 
-## ?? Documentation
+## 📖 Documentation
 
 ### Core Methods
 
@@ -210,7 +211,7 @@ AlohaPDF uses a tropical-inspired color scheme:
 - `Light` - Light header (clean)
 - `Minimal` - Bottom border only
 
-## ??? Real-World Examples
+## 🏝️ Real-World Examples
 
 Check out `/samples` for complete examples:
 
@@ -219,43 +220,43 @@ Check out `/samples` for complete examples:
 - **Meeting Notes** - Structured documents
 - **Product Catalog** - Multi-column layouts
 
-## ?? Contributing
+## 🤝 Contributing
 
-Aloha! We welcome contributions with open arms! ??
+Aloha! We welcome contributions with open arms! 🤗
 
-1. ?? **Report bugs** - Help us improve
-2. ?? **Suggest features** - Share your ideas
-3. ?? **Improve docs** - Make it easier for others
-4. ?? **Submit PRs** - Code with Aloha spirit
+1. 🐛 **Report bugs** - Help us improve
+2. 💡 **Suggest features** - Share your ideas
+3. 📝 **Improve docs** - Make it easier for others
+4. 🔧 **Submit PRs** - Code with Aloha spirit
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
-## ?? License
+## 📄 License
 
-MIT License - Copyright (c) 2025 Diego Belapati�o Farias
+MIT License - Copyright (c) 2025 Diego Belapatiño Farias
 
-## ?? Acknowledgments
+## 🙏 Acknowledgments
 
 - Built with [SkiaSharp](https://github.com/mono/SkiaSharp)
 - SVG support by [Svg.Skia](https://github.com/wieslawsoltes/Svg.Skia)
-- Inspired by tropical paradise ???
+- Inspired by tropical paradise 🏝️
 
-## ? Show Your Support
+## ⭐ Show Your Support
 
 If AlohaPDF brings Aloha spirit to your project:
-- ? Star this repository
-- ?? Share on social media
-- ?? Write about it
-- ?? Spread the Aloha!
+- ⭐ Star this repository
+- 🐦 Share on social media
+- 📝 Write about it
+- 💬 Spread the Aloha!
 
 ---
 
 <div align="center">
 
-**Made with ?? Aloha Spirit by [Diego Belapati�o Farias](https://github.com/diegobelapatinofariasTKE)**
+**Made with 🌺 Aloha Spirit by [Diego Belapatiño Farias](https://github.com/diegobelapatinofariasTKE)**
 
-*Create PDFs with joy, not frustration* ??
+*Create PDFs with joy, not frustration* 😊
 
-[Report Bug](https://github.com/diegobelapatinofariasTKE/AlohaPDF/issues) � [Request Feature](https://github.com/diegobelapatinofariasTKE/AlohaPDF/issues) � [Say Aloha](https://github.com/diegobelapatinofariasTKE/AlohaPDF/discussions)
+[Report Bug](https://github.com/diegobelapatinofariasTKE/AlohaPDF/issues) • [Request Feature](https://github.com/diegobelapatinofariasTKE/AlohaPDF/issues) • [Say Aloha](https://github.com/diegobelapatinofariasTKE/AlohaPDF/discussions)
 
 </div>

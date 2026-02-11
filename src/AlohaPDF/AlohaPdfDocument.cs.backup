@@ -366,16 +366,20 @@ public class AlohaPdfDocument : IAlohaPdfDocument
         }
     }
 
-        private void CalculateMargins()
+    private void CalculateMargins()
     {
         if (_options == null) return;
 
-        float docInfoHeight = (_options.Info?.ShowInHeader == true && !string.IsNullOrWhiteSpace(_options.Info?.Author)) ? 32f : 0f;
+        int rowPairs = (int)Math.Ceiling(_options.Metadata.Count / 2f);
+        float metadataBlockHeight = rowPairs > 0 
+            ? PdfLayout.SpaceMd + (rowPairs * PdfLayout.SpaceMd) + ((rowPairs - 1) * PdfLayout.SpaceSm) + PdfLayout.SpaceLg 
+            : 0f;
 
-        _firstPageTopMargin = PdfLayout.HeaderHeight + docInfoHeight;
-        _repeatPageTopMargin = _options.RepeatHeader ? PdfLayout.HeaderHeight : PdfLayout.MarginDefault;
+        _firstPageTopMargin = PdfLayout.HeaderHeight + metadataBlockHeight;
+        _repeatPageTopMargin = Math.Max(
+            (_options.RepeatHeader ? PdfLayout.HeaderHeight : 0f) + (_options.RepeatMetadata ? metadataBlockHeight : 0f),
+            PdfLayout.MarginDefault);
     }
-
 
     private void EnsureInitialized()
     {
@@ -394,7 +398,7 @@ public class AlohaPdfDocument : IAlohaPdfDocument
         _currentY = _currentPage == 1 ? _firstPageTopMargin : _repeatPageTopMargin;
 
         if (_currentPage == 1 || _options?.RepeatHeader == true) DrawHeader();
-        if (_currentPage == 1 && _options?.Info != null) DrawSimpleDocInfo();
+        if ((_currentPage == 1 || _options?.RepeatMetadata == true) && _options?.Metadata.Count > 0) DrawMetadataBlock();
     }
 
     private void FinalizePage()
@@ -458,49 +462,55 @@ public class AlohaPdfDocument : IAlohaPdfDocument
         }
     }
 
-
-
-
-    private void DrawSimpleDocInfo()
+    private void DrawMetadataBlock()
     {
-        if (_canvas == null || _options?.Info == null || !_options.Info.ShowInHeader)
-            return;
+        if (_canvas == null || _options?.Metadata == null) return;
 
-        if (string.IsNullOrWhiteSpace(_options.Info.Author))
-            return;
+        var rightItems = _options.Metadata.Where(kv =>
+            kv.Key.Contains("date", StringComparison.OrdinalIgnoreCase) ||
+            kv.Key.Contains("time", StringComparison.OrdinalIgnoreCase))
+            .ToList();
+        var leftItems = _options.Metadata.Except(rightItems).ToList();
 
-        // Simple format: "Author • Created on Date"
-        var text = $"{_options.Info.Author} • Created on {_options.Info.CreatedDate:MMM dd, yyyy}";
+        int rows = Math.Max(leftItems.Count, rightItems.Count);
+        if (rows == 0) return;
 
-        using var font = new SKFont(_regular, 10f);
-        using var paint = new SKPaint(font)
+        float yPosition = PdfLayout.HeaderHeight + PdfLayout.SpaceLg;
+
+        using var labelFont = new SKFont(_regular, PdfTypography.Caption);
+        using var valueFont = new SKFont(_medium, PdfTypography.Caption);
+        using var labelPaint = new SKPaint(labelFont) { Color = PdfColors.TextSecondary, TextAlign = SKTextAlign.Left };
+        using var valuePaint = new SKPaint(valueFont) { Color = PdfColors.TextPrimary, TextAlign = SKTextAlign.Left };
+        using var linePaint = new SKPaint { Color = PdfColors.Divider, StrokeWidth = 1f, Style = SKPaintStyle.Stroke };
+
+        for (int row = 0; row < rows; row++)
         {
-            Color = PdfColors.TextSecondary,
-            IsAntialias = true,
-            TextAlign = SKTextAlign.Center  // Center alignment
-        };
+            if (row < leftItems.Count)
+                DrawMetadataPair(leftItems[row].Key, leftItems[row].Value.ToUpper(), PageMargin, yPosition, labelFont, valueFont, labelPaint, valuePaint);
 
-        // Center it horizontally
-        var centerX = PdfLayout.PageWidth / 2f;
+            if (row < rightItems.Count)
+            {
+                string label = rightItems[row].Key;
+                string value = rightItems[row].Value.ToUpper();
+                float labelWidth = MeasureText(label, labelFont);
+                float valueWidth = MeasureText(value, valueFont);
+                float xPosition = PdfLayout.PageWidth - PageMargin - (labelWidth + PdfLayout.SpaceSm + valueWidth);
+                DrawMetadataPair(label, value, xPosition, yPosition, labelFont, valueFont, labelPaint, valuePaint);
+            }
 
-        _canvas.DrawText(text, centerX, _currentY + 12f, font, paint);
-        _currentY += 20f;
+            _canvas.DrawLine(PageMargin, yPosition + PdfLayout.SpaceSm, PdfLayout.PageWidth - PageMargin, yPosition + PdfLayout.SpaceSm, linePaint);
+            yPosition += PdfLayout.SpaceLg;
+        }
+    }
 
-        // Subtle separator line
-        using var linePaint = new SKPaint
-        {
-            Color = PdfColors.Border.WithAlpha(80),
-            StrokeWidth = 0.5f,
-            Style = SKPaintStyle.Stroke
-        };
-        _canvas.DrawLine(
-            PageMargin,
-            _currentY,
-            PdfLayout.PageWidth - PageMargin,
-            _currentY,
-            linePaint
-        );
-        _currentY += 8f;
+    private void DrawMetadataPair(string label, string value, float x, float y, SKFont labelFont, SKFont valueFont, SKPaint labelPaint, SKPaint valuePaint)
+    {
+        if (_canvas == null) return;
+
+        _canvas.DrawText(label, x, y, labelFont, labelPaint);
+
+        float labelWidth = MeasureText(label, labelFont);
+        _canvas.DrawText(value, x + labelWidth + PdfLayout.SpaceSm, y, valueFont, valuePaint);
     }
 
     private void DrawFooter()

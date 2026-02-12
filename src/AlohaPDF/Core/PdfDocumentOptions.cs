@@ -47,6 +47,12 @@ public class PdfDocumentOptions
     public FontOptions? Fonts { get; set; }
 
     /// <summary>
+    /// Gets or sets the page size for the PDF document.
+    /// Default is A4 (595 × 842 points / 210mm × 297mm).
+    /// </summary>
+    public PageSize PageSize { get; set; } = PageSize.A4;
+
+    /// <summary>
     /// Gets or sets the page margin size.
     /// Default is MarginDefault (48f).
     /// </summary>

@@ -46,6 +46,9 @@ public class AlohaPdfDocument : IAlohaPdfDocument
 
         _options = options ?? throw new ArgumentNullException(nameof(options));
         SectionCounter = 0;
+        // Configure page size
+        Styling.PdfLayout.SetPageSize(options.PageSize);
+
 
         LoadFonts();
         CalculateMargins();
@@ -599,6 +602,9 @@ public class AlohaPdfDocument : IAlohaPdfDocument
         _bold?.Dispose();
         _medium?.Dispose();
         _monospace?.Dispose();
+
+        // Reset page size to default
+        Styling.PdfLayout.ResetPageSize();
     }
 
     #endregion

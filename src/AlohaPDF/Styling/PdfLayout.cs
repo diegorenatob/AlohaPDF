@@ -1,14 +1,49 @@
-﻿namespace AlohaPDF.Styling;
+namespace AlohaPDF.Styling;
 
 /// <summary>
-/// Layout constants for PDF documents.
-/// Based on A4 page size with modern spacing.
+/// Layout constants and helpers for PDF documents.
+/// Supports multiple page sizes with consistent spacing.
 /// </summary>
 public static class PdfLayout
 {
-    // Page dimensions (A4 in points: 210mm x 297mm)
-    public const float PageWidth = 595.28f;
-    public const float PageHeight = 841.89f;
+    // Page dimensions - Now configurable per document
+    // Default values are for A4 (595.28 × 841.89 points / 210mm × 297mm)
+    // Use SetPageSize() to configure different sizes
+    private static float _pageWidth = 595.28f;
+    private static float _pageHeight = 841.89f;
+
+    /// <summary>
+    /// Gets the current page width in points.
+    /// Default: A4 width (595.28 points / 210mm).
+    /// </summary>
+    public static float PageWidth => _pageWidth;
+
+    /// <summary>
+    /// Gets the current page height in points.
+    /// Default: A4 height (841.89 points / 297mm).
+    /// </summary>
+    public static float PageHeight => _pageHeight;
+
+    /// <summary>
+    /// Sets the page dimensions based on the specified page size.
+    /// This should be called during document initialization.
+    /// </summary>
+    /// <param name="pageSize">The page size to use.</param>
+    internal static void SetPageSize(Core.PageSize pageSize)
+    {
+        var dimensions = Core.PageSizeInfo.GetDimensions(pageSize);
+        _pageWidth = dimensions.Width;
+        _pageHeight = dimensions.Height;
+    }
+
+    /// <summary>
+    /// Resets page dimensions to default (A4).
+    /// </summary>
+    internal static void ResetPageSize()
+    {
+        _pageWidth = 595.28f;
+        _pageHeight = 841.89f;
+    }
     
     // Margins - Following modern design principles
     public const float MarginDefault = 48f;      // ~17mm

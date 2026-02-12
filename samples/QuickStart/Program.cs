@@ -13,6 +13,7 @@ try
     {
         Title = "Aloha Sales Report",
         Subtitle = "Q1 2025 - Created with Aloha Spirit",
+        PageSize = PageSize.A4,  // Can be: A4, Letter, Legal, A3, A5, Tabloid, Executive, B4, B5
         Info = new DocumentInfo
         {
             Author = "Jane Smith",

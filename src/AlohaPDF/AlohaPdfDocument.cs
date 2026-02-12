@@ -47,7 +47,7 @@ public class AlohaPdfDocument : IAlohaPdfDocument
         _options = options ?? throw new ArgumentNullException(nameof(options));
         SectionCounter = 0;
         // Configure page size
-        Styling.PdfLayout.SetPageSize(options.PageSize);
+        Styling.PdfLayout.SetPageSize(options.PageSize, options.Orientation);
 
 
         LoadFonts();

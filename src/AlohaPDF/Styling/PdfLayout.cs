@@ -25,13 +25,14 @@ public static class PdfLayout
     public static float PageHeight => _pageHeight;
 
     /// <summary>
-    /// Sets the page dimensions based on the specified page size.
+    /// Sets the page dimensions based on the specified page size and orientation.
     /// This should be called during document initialization.
     /// </summary>
     /// <param name="pageSize">The page size to use.</param>
-    internal static void SetPageSize(Core.PageSize pageSize)
+    /// <param name="orientation">The page orientation (Portrait or Landscape).</param>
+    internal static void SetPageSize(Core.PageSize pageSize, Core.PageOrientation orientation = Core.PageOrientation.Portrait)
     {
-        var dimensions = Core.PageSizeInfo.GetDimensions(pageSize);
+        var dimensions = Core.PageSizeInfo.GetDimensions(pageSize, orientation);
         _pageWidth = dimensions.Width;
         _pageHeight = dimensions.Height;
     }

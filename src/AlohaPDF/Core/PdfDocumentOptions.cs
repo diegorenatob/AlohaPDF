@@ -53,6 +53,12 @@ public class PdfDocumentOptions
     public PageSize PageSize { get; set; } = PageSize.A4;
 
     /// <summary>
+    /// Gets or sets the page orientation.
+    /// Default is Portrait (vertical). Use Landscape for horizontal orientation.
+    /// </summary>
+    public PageOrientation Orientation { get; set; } = PageOrientation.Portrait;
+
+    /// <summary>
     /// Gets or sets the page margin size.
     /// Default is MarginDefault (48f).
     /// </summary>

@@ -50,6 +50,7 @@ pdf.Initialize(new PdfDocumentOptions
     Title = "Welcome to AlohaPDF",
     Subtitle = "Creating PDFs with Aloha Spirit",
     PageSize = PageSize.A4,  // A4, Letter, Legal, A3, A5, Tabloid, Executive, B4, B5
+    Orientation = PageOrientation.Portrait,  // Portrait or Landscape
     Info = new DocumentInfo
     {
         Author = "Your Name",

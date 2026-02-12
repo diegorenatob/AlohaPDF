@@ -7,13 +7,14 @@ namespace AlohaPDF.Core;
 public static class PageSizeInfo
 {
     /// <summary>
-    /// Gets the width and height in points for the specified page size.
+    /// Gets the width and height in points for the specified page size and orientation.
     /// </summary>
     /// <param name="pageSize">The page size.</param>
+    /// <param name="orientation">The page orientation (Portrait or Landscape).</param>
     /// <returns>A tuple with (width, height) in points.</returns>
-    public static (float Width, float Height) GetDimensions(PageSize pageSize)
+    public static (float Width, float Height) GetDimensions(PageSize pageSize, PageOrientation orientation = PageOrientation.Portrait)
     {
-        return pageSize switch
+        var (width, height) = pageSize switch
         {
             // ISO A-series
             PageSize.A4 => (595f, 842f),      // 210mm × 297mm
@@ -32,17 +33,24 @@ public static class PageSizeInfo
 
             _ => (595f, 842f) // Default to A4
         };
+
+        // Swap width and height for Landscape orientation
+        return orientation == PageOrientation.Landscape 
+            ? (height, width)  // Swap for landscape
+            : (width, height); // Keep as-is for portrait
     }
 
     /// <summary>
-    /// Gets the width in points for the specified page size.
+    /// Gets the width in points for the specified page size and orientation.
     /// </summary>
-    public static float GetWidth(PageSize pageSize) => GetDimensions(pageSize).Width;
+    public static float GetWidth(PageSize pageSize, PageOrientation orientation = PageOrientation.Portrait) 
+        => GetDimensions(pageSize, orientation).Width;
 
     /// <summary>
-    /// Gets the height in points for the specified page size.
+    /// Gets the height in points for the specified page size and orientation.
     /// </summary>
-    public static float GetHeight(PageSize pageSize) => GetDimensions(pageSize).Height;
+    public static float GetHeight(PageSize pageSize, PageOrientation orientation = PageOrientation.Portrait) 
+        => GetDimensions(pageSize, orientation).Height;
 
     /// <summary>
     /// Gets a human-readable description of the page size.

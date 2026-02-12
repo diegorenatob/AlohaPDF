@@ -21,7 +21,7 @@ try
             CreatedDate = DateTime.Now,
             ShowInHeader = true  // Simple one-line format: "Jane Smith • Created on Feb 11, 2025"
         },
-        RepeatHeader = true
+        RepeatHeader = false
     };
 
     Console.WriteLine("✓ Initializing PDF with Aloha spirit...");
@@ -30,7 +30,7 @@ try
     Console.WriteLine("✓ Adding tropical content...");
     
     pdf
-        .AddSection("🌴 Executive Summary", pill: true)
+        .AddSection("Executive Summary", pill: true)
         .AddParagraph(
             "Welcome to our Q1 2025 performance report, created with AlohaPDF! " +
             "We achieved outstanding growth across all metrics with the Aloha spirit guiding us.",
@@ -38,7 +38,7 @@ try
         )
         .AddSpace(PdfLayout.SpaceLg)
         
-        .AddSection("📊 Key Performance Indicators")
+        .AddSection("Key Performance Indicators")
         .AddTable(
             headers: new[] { "Metric", "Target", "Actual", "Variance", "Status" },
             rows: new[]
@@ -54,7 +54,7 @@ try
         )
         .AddSpace(PdfLayout.SpaceLg)
         
-        .AddSection("🏝️ Regional Paradise")
+        .AddSection("Regional Paradise")
         .AddSubtitleWithSummary("Revenue by Region", "Total:", "$125,000", pill: true)
         .AddTable(
             headers: new[] { "Region", "Sales", "Growth", "Share" },
@@ -70,7 +70,7 @@ try
         )
         .AddSpace(PdfLayout.SpaceLg)
         
-        .AddSection("🌊 Top Products")
+        .AddSection("Top Products")
         .AddList(
             items: new[]
             {
@@ -84,7 +84,7 @@ try
         )
         .AddSpace(PdfLayout.SpaceLg)
         
-        .AddSection("🎯 Q2 Action Items")
+        .AddSection("Q2 Action Items")
         .AddStyledList(
             title: "Strategic Initiatives with Aloha Spirit",
             items: new[]
@@ -99,7 +99,7 @@ try
         )
         .AddSpace(PdfLayout.SpaceLg)
         
-        .AddSection("🌺 Mahalo & Conclusion")
+        .AddSection("Mahalo & Conclusion")
         .AddParagraph(
             "Q1 2025 was our best quarter yet! With the Aloha spirit in everything we do, " +
             "we're positioned for continued success. Mahalo (thank you) to our amazing team!",
@@ -112,10 +112,10 @@ try
     Console.WriteLine($"\n✓ Generating PDF with Aloha vibes: {outputPath}");
     pdf.Generate(outputPath);
 
-    Console.WriteLine("\n🌺 PDF generated successfully with Aloha spirit!");
+    Console.WriteLine("\nPDF generated successfully with Aloha spirit!");
     Console.WriteLine($"   Location: {outputPath}");
     Console.WriteLine("\n   Open the file to experience the tropical magic!");
-    Console.WriteLine("\n🏝️ Mahalo for using AlohaPDF - Create PDFs with joy!");
+    Console.WriteLine("\nMahalo for using AlohaPDF - Create PDFs with joy!");
 }
 catch (Exception ex)
 {

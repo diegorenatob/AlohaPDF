@@ -52,7 +52,8 @@ Este job se ejecuta en cada:
 - Pull request hacia `master` o `main`
 
 **Acciones:**
-- ✅ Restaura dependencias
+- ✅ Instala dependencias nativas de SkiaSharp (libfontconfig1, libfreetype6, libx11-6)
+- ✅ Restaura dependencias .NET
 - ✅ Compila el proyecto en modo Release
 - ✅ Ejecuta todos los tests
 - ✅ Genera reporte de cobertura de código

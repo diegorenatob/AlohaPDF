@@ -35,28 +35,28 @@ build-and-test:
   - name: Restore dependencies
     run: dotnet restore
       
-    - name: Build solution
-      run: dotnet build --configuration Release --no-restore
+  - name: Build solution
+    run: dotnet build --configuration Release --no-restore
       
-    - name: Run tests
-      run: dotnet test --configuration Release --no-build --verbosity normal --collect:"XPlat Code Coverage" --results-directory ./coverage
+  - name: Run tests
+    run: dotnet test --configuration Release --no-build --verbosity normal --collect:"XPlat Code Coverage" --results-directory ./coverage
       
-    - name: Upload test results
-      uses: actions/upload-artifact@v4
-      if: always()
-      with:
-        name: test-results
-        path: ./coverage
+  - name: Upload test results
+    uses: actions/upload-artifact@v4
+    if: always()
+    with:
+      name: test-results
+      path: ./coverage
         
-    - name: Code Coverage Report
-      uses: codecov/codecov-action@v4
-      if: success()
-      with:
-        files: ./coverage/**/coverage.cobertura.xml
-        flags: unittests
-        name: codecov-umbrella
-        fail_ci_if_error: false
-        token: ${{ secrets.CODECOV_TOKEN }}
+  - name: Code Coverage Report
+    uses: codecov/codecov-action@v4
+    if: success()
+    with:
+      files: ./coverage/**/coverage.cobertura.xml
+      flags: unittests
+      name: codecov-umbrella
+      fail_ci_if_error: false
+      token: ${{ secrets.CODECOV_TOKEN }}
 
   pack:
     name: Pack NuGet

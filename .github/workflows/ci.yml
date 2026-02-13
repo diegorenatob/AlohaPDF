@@ -22,41 +22,41 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
       
-  - name: Setup .NET
-    uses: actions/setup-dotnet@v4
-    with:
-      dotnet-version: ${{ env.DOTNET_VERSION }}
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: ${{ env.DOTNET_VERSION }}
     
-  - name: Install SkiaSharp dependencies
-    run: |
-      sudo apt-get update
-      sudo apt-get install -y libfontconfig1 libfreetype6 libx11-6
+    - name: Install SkiaSharp dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y libfontconfig1 libfreetype6 libx11-6
         
-  - name: Restore dependencies
-    run: dotnet restore
+    - name: Restore dependencies
+      run: dotnet restore
       
-  - name: Build solution
-    run: dotnet build --configuration Release --no-restore
+    - name: Build solution
+      run: dotnet build --configuration Release --no-restore
       
-  - name: Run tests
-    run: dotnet test --configuration Release --no-build --verbosity normal --collect:"XPlat Code Coverage" --results-directory ./coverage
+    - name: Run tests
+      run: dotnet test --configuration Release --no-build --verbosity normal --collect:"XPlat Code Coverage" --results-directory ./coverage
       
-  - name: Upload test results
-    uses: actions/upload-artifact@v4
-    if: always()
-    with:
-      name: test-results
-      path: ./coverage
+    - name: Upload test results
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: test-results
+        path: ./coverage
         
-  - name: Code Coverage Report
-    uses: codecov/codecov-action@v4
-    if: success()
-    with:
-      files: ./coverage/**/coverage.cobertura.xml
-      flags: unittests
-      name: codecov-umbrella
-      fail_ci_if_error: false
-      token: ${{ secrets.CODECOV_TOKEN }}
+    - name: Code Coverage Report
+      uses: codecov/codecov-action@v4
+      if: success()
+      with:
+        files: ./coverage/**/coverage.cobertura.xml
+        flags: unittests
+        name: codecov-umbrella
+        fail_ci_if_error: false
+        token: ${{ secrets.CODECOV_TOKEN }}
 
   pack:
     name: Pack NuGet
@@ -108,3 +108,4 @@ jobs:
         
     - name: Publish to NuGet.org
       run: dotnet nuget push ./artifacts/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
+

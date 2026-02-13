@@ -45,6 +45,11 @@ bld/
 *.coverage
 *.coveragexml
 
+# CI/CD Artifacts
+artifacts/
+coverage/
+TestResults/
+
 # macOS
 .DS_Store
 .AppleDouble

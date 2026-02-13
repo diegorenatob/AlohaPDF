@@ -4,10 +4,12 @@
 
 ### *Create Beautiful PDFs with Aloha Spirit*
 
+[![Build and Test](https://github.com/diegorenatob/AlohaPDF/actions/workflows/ci.yml/badge.svg)](https://github.com/diegorenatob/AlohaPDF/actions/workflows/ci.yml)
 [![NuGet](https://img.shields.io/nuget/v/AlohaPDF.svg?style=flat-square&logo=nuget)](https://www.nuget.org/packages/AlohaPDF/)
 [![Downloads](https://img.shields.io/nuget/dt/AlohaPDF.svg?style=flat-square&logo=nuget)](https://www.nuget.org/packages/AlohaPDF/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-orange.svg?style=flat-square)](LICENSE)
 [![.NET 9](https://img.shields.io/badge/.NET-9.0-512BD4?style=flat-square&logo=dotnet)](https://dotnet.microsoft.com/)
+[![codecov](https://codecov.io/gh/diegorenatob/AlohaPDF/branch/master/graph/badge.svg)](https://codecov.io/gh/diegorenatob/AlohaPDF)
 
 A modern, intuitive PDF generator for .NET MAUI with tropical vibes.  
 Perfect for cross-platform mobile and desktop applications.

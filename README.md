@@ -257,7 +257,7 @@ If AlohaPDF brings Aloha spirit to your project:
 
 <div align="center">
 
-**Made with 🌺 Aloha Spirit by [Diego Belapatiño Farias](https://github.com/diegobelapatinofariasTKE)**
+**Made with 🌺 Aloha Spirit by [Diego Belapatiño Farias](https://github.com/diegorenatob)**
 
 *Create PDFs with joy, not frustration* 😊
 

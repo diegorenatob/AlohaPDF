@@ -603,6 +603,9 @@ public class AlohaPdfDocument : IAlohaPdfDocument
         _medium?.Dispose();
         _monospace?.Dispose();
 
+        // Reset section counter
+        SectionCounter = 0;
+
         // Reset page size to default
         Styling.PdfLayout.ResetPageSize();
     }

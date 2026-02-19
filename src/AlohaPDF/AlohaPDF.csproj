@@ -15,6 +15,7 @@
     <PackageTags>pdf;maui;skiasharp;report;document;mobile;cross-platform;fluent;ios;android;windows;mac;aloha</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/diegorenatob/AlohaPDF</PackageProjectUrl>
+    <PackageIcon>logo.png</PackageIcon>
     <RepositoryUrl>https://github.com/diegorenatob/AlohaPDF</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageReadmeFile>README.md</PackageReadmeFile>
@@ -58,6 +59,7 @@ Features:
 
   <ItemGroup>
     <None Include="../../README.md" Pack="true" PackagePath="/" />
+    <None Include="logo.png" Pack="true" PackagePath="/" />
   </ItemGroup>
 
 </Project>

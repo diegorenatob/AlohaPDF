@@ -8,7 +8,7 @@
     
     <!-- NuGet Package Properties -->
     <PackageId>AlohaPDF</PackageId>
-    <Version>0.2.1-alpha</Version>
+    <Version>0.2.2-alpha</Version>
     <Authors>Diego Belapatiño Farias</Authors>
     <Company>AlohaPDF</Company>
     <Description>🌺 Create beautiful PDFs with Aloha spirit! A modern, fluent PDF generator for .NET MAUI with an intuitive API. Perfect for cross-platform mobile and desktop apps.</Description>
@@ -26,13 +26,13 @@
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <Copyright>Copyright (c) 2025 Diego Belapatiño Farias</Copyright>
-    <PackageReleaseNotes>🌺 v0.2.1-alpha - Second Alpha Release
+    <PackageReleaseNotes>🌺 v0.2.2-alpha - Patch Release
 
 ✨ New in this version:
-- Fixed CI/CD pipeline for proper NuGet publishing
+- Fixed tag/commit mismatch from v0.2.1-alpha release
+- CI/CD now builds from the correct tagged commit
 - Complete test suite with 137 passing tests
 - SkiaSharp native dependencies properly configured for Linux
-- Improved documentation and setup guides
 
 ⚠️ This is an alpha version for testing and feedback.
 

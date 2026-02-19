@@ -257,10 +257,10 @@ If AlohaPDF brings Aloha spirit to your project:
 
 <div align="center">
 
-**Made with 🌺 Aloha Spirit by [Diego Belapatiño Farias](https://github.com/diegobelapatinofariasTKE)**
+**Made with 🌺 Aloha Spirit by [Diego Belapatiño Farias](https://github.com/diegorenatob)**
 
 *Create PDFs with joy, not frustration* 😊
 
-[Report Bug](https://github.com/diegobelapatinofariasTKE/AlohaPDF/issues) • [Request Feature](https://github.com/diegobelapatinofariasTKE/AlohaPDF/issues) • [Say Aloha](https://github.com/diegobelapatinofariasTKE/AlohaPDF/discussions)
+[Report Bug](https://github.com/diegorenatob/AlohaPDF/issues) • [Request Feature](https://github.com/diegorenatob/AlohaPDF/issues) • [Say Aloha](https://github.com/diegorenatob/AlohaPDF/discussions)
 
 </div>

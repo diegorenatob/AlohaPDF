@@ -8,10 +8,10 @@
     
     <!-- NuGet Package Properties -->
     <PackageId>AlohaPDF</PackageId>
-    <Version>1.0.0</Version>
+    <Version>0.1.0-alpha</Version>
     <Authors>Diego Belapatiño Farias</Authors>
     <Company>AlohaPDF</Company>
-    <Description>?? Create beautiful PDFs with Aloha spirit! A modern, fluent PDF generator for .NET MAUI with an intuitive API. Perfect for cross-platform mobile and desktop apps.</Description>
+    <Description>🌺 Create beautiful PDFs with Aloha spirit! A modern, fluent PDF generator for .NET MAUI with an intuitive API. Perfect for cross-platform mobile and desktop apps.</Description>
     <PackageTags>pdf;maui;skiasharp;report;document;mobile;cross-platform;fluent;ios;android;windows;mac;aloha</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/diegorenatob/AlohaPDF</PackageProjectUrl>
@@ -25,7 +25,23 @@
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <Copyright>Copyright (c) 2025 Diego Belapatiño Farias</Copyright>
-    <PackageReleaseNotes>?? Initial release - Create PDFs with Aloha spirit!</PackageReleaseNotes>
+    <PackageReleaseNotes>🌺 v0.1.0-alpha - Initial Alpha Release
+
+⚠️ This is an early alpha version for testing and feedback.
+
+✨ Features:
+- Fluent API for PDF generation
+- Support for sections, paragraphs, tables, and lists
+- Modern tropical-themed styling
+- Cross-platform support (.NET 9)
+- SkiaSharp-based rendering
+
+🐛 Known Issues:
+- Some advanced features may have rough edges
+- Documentation is still being expanded
+- Breaking changes may occur in future versions
+
+📝 Feedback welcome at: https://github.com/diegorenatob/AlohaPDF/issues</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
